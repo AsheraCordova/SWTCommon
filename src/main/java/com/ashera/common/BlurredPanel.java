@@ -8,6 +8,7 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.PaletteData;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Canvas;
@@ -119,9 +120,10 @@ public class BlurredPanel {
 	}
 
 	private Image createBlurredImage() {
-		final GC gc = new GC(parent);
+		final GC gc = new GC(parent.getDisplay());
 		final Image image = new Image(parent.getDisplay(), parent.getSize().x, parent.getSize().y);
-		gc.copyArea(image,0,0);
+		Point point = parent.getShell().toDisplay(0, 0);
+		gc.copyArea(image,point.x,point.y);
 		gc.dispose();
 
 		Image image2 = new Image(parent.getDisplay(), blur(image.getImageData(), radius));
