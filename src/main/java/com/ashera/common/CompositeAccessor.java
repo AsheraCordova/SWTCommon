@@ -28,7 +28,6 @@ public class CompositeAccessor implements TweenAccessor<Control> {
 	public void setValues(Control panel, int tweenType, float[] newValues) {
 		switch (tweenType) {
 		case POS_X: {
-			System.out.println(newValues[0]);
 			panel.setBounds((int) newValues[0], panel.getBounds().y, panel.getBounds().width, panel.getBounds().height);
 			Listener[] listeners = panel.getListeners(AnimationUtils.Animating);
 			for (Listener listener : listeners) {
