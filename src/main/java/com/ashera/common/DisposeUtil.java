@@ -10,6 +10,10 @@ public class DisposeUtil {
 	        		Resource resource = (Resource) control;
 		            disposeResource(resource);
 	        	}
+	        	
+	        	if (control instanceof r.android.animation.Animator) {
+	        		((r.android.animation.Animator) control).end();
+	        	}
 	        }
     	}
     }
