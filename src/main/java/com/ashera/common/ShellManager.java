@@ -43,7 +43,6 @@ public class ShellManager {
 				}
 			}
 		}
-		System.out.println(activeShell.getData(TYPE));
 		return activeShell;
 	}
 }
