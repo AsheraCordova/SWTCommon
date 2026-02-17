@@ -24,6 +24,8 @@ public class ShellManager {
 
 	enum Type { Root, Dialog }
 	private static ShellManager INSTANCE = new ShellManager();
+	private Shell rootShell;
+
 	private ShellManager() {
 	}
 	
@@ -35,7 +37,12 @@ public class ShellManager {
 		Shell shell = new Shell(display, style);
 		shell.setData(TYPE, Type.Root);
 		shell.setData(CREATION_DATE, System.currentTimeMillis());
+		this.rootShell = shell;
 		return shell;
+	}
+
+	public Shell getRootShell() {
+		return rootShell;
 	}
 	
 	public Shell createDialogShell(Shell parent, int style) {

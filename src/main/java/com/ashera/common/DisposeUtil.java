@@ -29,6 +29,10 @@ public class DisposeUtil {
 	        	if (control instanceof r.android.animation.Animator) {
 	        		((r.android.animation.Animator) control).end();
 	        	}
+	        	
+	        	if (control instanceof Runnable) {
+	        		((Runnable) control).run();
+	        	}
 	        }
     	}
     }
